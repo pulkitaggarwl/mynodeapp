@@ -17,7 +17,7 @@ steps:
 
 - script: |
     npm install
-#   npm run build
+#    npm run build
   displayName: 'npm install and build'
 - task: ArchiveFiles@2
   displayName: 'Archive files'
@@ -27,11 +27,11 @@ steps:
     archiveType: zip
     archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     replaceExistingArchive: true
-- task: PublishBuildArtifacts@1
-  displayName: 'Publish artifacts: drop'
-  inputs:
-   publishLocation: Container
-   PathtoPublish: $(Build.ArtifactStagingDirectory)
+#- task: PublishBuildArtifacts@1
+#  displayName: 'Publish artifacts: drop'
+#  inputs:
+#   publishLocation: Container
+#   PathtoPublish: $(Build.ArtifactStagingDirectory)
 - task: AzureWebApp@1
   displayName: 'Azure Web App Deploy: atulvotingapp'
   inputs:
