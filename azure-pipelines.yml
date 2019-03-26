@@ -24,8 +24,8 @@ steps:
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
     includeRootFolder: false
-    archiveType: tar
-    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).tar.gz
+    archiveType: zip
+    archiveFile: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     replaceExistingArchive: true
 - task: PublishBuildArtifacts@1
   displayName: 'Publish artifacts: drop'
@@ -39,5 +39,5 @@ steps:
     appType: webAppLinux
     appName: expressappyaml
     runtimeStack: 'NODE|10.10'
-    package: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).tar.gz
+    package: $(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip
     startUpCommand: 'npm run start'
