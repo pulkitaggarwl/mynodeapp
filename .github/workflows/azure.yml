@@ -1,0 +1,14 @@
+name: Build and Deploy to Azure
+
+on:
+  push: 
+  
+jobs: 
+  build: 
+    uses: actions/starter-workflows/.github/workflows/node.yml@1
+    
+  release: 
+    needs: build
+    uses: http://www.github.com/Azure/actions/.github/workflows/deploytowebapp.yml@1
+    
+    
